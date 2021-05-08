@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <meta charset="utf-8">
+	<link href="welcome.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+	<main role="main" class="container ">
+
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top" >
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">Logo</a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 1</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link disabled" href="#">No link</a>
+    </li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Dropdown link
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+<div id="indexBody">
+<div class="jumbotron">
+		<h1 class="display-4">Welcome ！！！！</h1>
+
+		<hr class="my-4">
+		<h4>Now is
+		<span id="time"></span>
+				<script>
+					var show= function(){
+						var date = new Date();
+						var year = date.getFullYear();
+						var month = date.getMonth()+1;
+						month= month<10?"0"+month:month;
+						var day = date.getDate();
+						day= day<10?"0"+day:day;
+						var hour = date.getHours();
+						hour= hour<10?"0"+hour:hour;
+						var minute = date.getMinutes();
+						minute= minute<10?"0"+minute:minute;
+						var second=date.getSeconds();
+						second= second<10?"0"+second:second;
+						result=year+"-"+month+"-"+day+"-"+hour+":"+minute+":"+second;
+						document.getElementById("time").innerHTML=result;
+				 }
+					show();
+					setInterval("show()",1000);
+				</script>
+				</h4>
+		<p class="lead" th:text="${#dates.format(date, 'dd-MM-yyyy HH:mm')}"></p>
+		<hr class="my-4">
+
+		<form name="loginButtom" action="/auth" method="post">    <!-- action="login.php"-->
+						<div class="form-group" style="text-align: left">
+								<label for="email">Email</label>
+								<input class="form-control" id="email"  type="email" name="email"  placeholder="E123456/M123456	"required>
+						</div>
+						<div class="form-group" style="text-align: left">
+								<label for="password">Password</label>
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+						</div>
+
+					<a href="homePage.html"	button type="submit" class="btn btn-primary" style="width:100%;"> Submit</a>
+		</form>
+
+
+<!-- modal Test !!!!-->
+		<div class="container">
+		  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+		    button name
+		  </button>
+		  <div class="modal fade" id="wrongPasswordModal">
+		    <div class="modal-dialog">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <h4 class="modal-title">Wrong Password</h4>
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		        </div>
+		        <div class="modal-body">
+		          Please Try again
+		        </div>
+		        <div class="modal-footer">
+		          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+
+		<div>
+				<a href="forgotPassword.html">Forgot Password?</a>
+		</div>
+</div>
+</div>
+
+		<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom nav justify-content-center">
+			<li class="nav-item">
+      <a class="nav-link" style="color:white;" href="https://www.w3school.com.cn/tags/tag_style.asp">Github Address</a>
+			<a>© Copyright <date> <owner> All Rights Reserved </a>
+    </li>
+	</nav>
+
+			</main>
+
+		</body>
+		</html>

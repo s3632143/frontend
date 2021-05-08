@@ -1,0 +1,23 @@
+
+#mainBody{
+  margin-top:5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  max-width:none;
+
+}
+
+
+#homeBody{
+position: relative;
+text-align: left;
+width: 100%;
+height:auto;
+left: auto;
+right: auto;
+border: 10px;
+border-color: red;
+left: auto;
+right: auto;
+}
